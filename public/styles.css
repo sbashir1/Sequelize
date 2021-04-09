@@ -1,13 +1,15 @@
+h1 {
+    margin-bottom: 50px;
+}
+
 .table{
     background-color: lightblue;
     text-align: center;
-    margin-top: 50px;
-    margin-left: 40px;
+    margin-top: 450px;
+    margin-left: 50px;
 }
 
 #chartContainer {
-    height: 600px; 
-    width: 1350px; 
     margin-top: 50px;
     top: 50px;
     display: flex;

@@ -178,7 +178,6 @@ async function windowActions() {
   });
   chart.render();
   console.log(chart);
-  //    console.log(tbody);
 }
 
 window.onload = windowActions;
