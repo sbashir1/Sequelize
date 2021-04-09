@@ -49,9 +49,6 @@ async function windowActions() {
     title: {
       text: 'Macros by Meals'
     },
-    axisX: {
-      valueFormatString: selected.meal_name
-    },
     toolTip: {
       shared: true
     },
