@@ -208,8 +208,34 @@ router.get("/restrictions/:restriction_id", async (req, res) => {
     res.json(restrictions);
   } catch (err) {
     console.error(err);
-    gi;
     res.error("Server error");
+  }
+});
+
+router.get("/MealsMacros", async (req, res) => {
+  try {
+    const Meals = await db.Meals.findAll();
+    const Macros = await db.Macros.findAll();
+    const MealMacrosTable = Meals.map((meal) => {
+      const MacrosForMeal = Macros.find((macro) => macro.meal_id === meal.meal_id)
+      return {
+        meal_id: meal.meal_id,
+        meal_name: meal.meal_name,
+        meal_category: meal.meal_category,
+        macro_id: MacrosForMeal.macro_id,
+        calories: MacrosForMeal.calories,
+        serving_size: MacrosForMeal.serving_size,
+        cholesterol: MacrosForMeal.cholesterol,
+        sodium: MacrosForMeal.sodium,
+        carbs: MacrosForMeal.carbs,
+        protein: MacrosForMeal.protein,
+        fat: MacrosForMeal.fat
+      };
+    });
+    res.json(MealMacrosTable);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
   }
 });
 
